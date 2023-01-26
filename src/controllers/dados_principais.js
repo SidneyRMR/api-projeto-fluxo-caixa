@@ -10,13 +10,14 @@ export const getDados = (_, res) => {
 
 
 export const addDado = (req, res) => {
-    const q = "INSERT INTO fluxocaixapessoal(data, descricao, parcela, tipo, observacao) VALUES ?"
+    const q = "INSERT INTO fluxocaixapessoal(data, descricao, parcela, entrada, quitado, observacao) VALUES ?"
 
     const values = [[
         req.body.data,
         req.body.descricao,
         req.body.parcela,
-        req.body.tipo, 
+        req.body.entrada, 
+        req.body.quitado, 
         req.body.observacao, 
     ]]
 
@@ -27,14 +28,15 @@ export const addDado = (req, res) => {
 
 }
 export const updateDado = (req, res) => {
-    const q = "UPDATE fluxocaixapessoal SET id = ?, data = ?, descricao = ?, parcela = ?, tipo = ?, observacao = ? WHERE id = ?"
+    const q = "UPDATE fluxocaixapessoal SET id = ?, data = ?, descricao = ?, parcela = ?, entrada = ?, quitado = ?, observacao = ? WHERE id = ?"
 
     const values = [
         req.body.id,
         req.body.data,
         req.body.descricao,
         req.body.parcela,
-        req.body.tipo,
+        req.body.entrada,
+        req.body.quitado,
         req.body.observacao,
     ]
 
