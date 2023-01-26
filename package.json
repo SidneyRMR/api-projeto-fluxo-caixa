@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "projeto pessoal para controle de fluxo de caixa",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --es-module-specifier-resolution=node src/index.js",
+    "production": "node src/index.js"
   },
   "author": "Sidney Rafael Mantovani Ribeiro",
   "license": "ISC",
