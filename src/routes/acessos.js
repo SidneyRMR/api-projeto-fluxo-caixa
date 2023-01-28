@@ -10,7 +10,7 @@ router.get("/status", (req, res) => {res.send('Running API...')})
 
 router.get("/dados-caixa", getDados)
 router.post("/dados-caixa", addDado)
-router.put("/dados-caixa/:id_usuario", updateDado)
-router.delete("/dados-caixa/:id_usuario", deleteDado)
+router.put("/dados-caixa/:id", updateDado)
+router.delete("/dados-caixa/:id", deleteDado)
 
 export default router
