@@ -10,11 +10,12 @@ export const getDados = (_, res) => {
 
 
 export const addDado = (req, res) => {
-    const q = "INSERT INTO fluxocaixapessoal(data, descricao, parcela, entrada, quitado, observacao) VALUES ?"
+    const q = "INSERT INTO fluxocaixapessoal(data, descricao, valor, parcela, entrada, quitado, observacao) VALUES ?"
 
     const values = [[
         req.body.data,
         req.body.descricao,
+        req.body.valor,
         req.body.parcela,
         req.body.entrada, 
         req.body.quitado, 
@@ -28,12 +29,13 @@ export const addDado = (req, res) => {
 
 }
 export const updateDado = (req, res) => {
-    const q = "UPDATE fluxocaixapessoal SET id = ?, data = ?, descricao = ?, parcela = ?, entrada = ?, quitado = ?, observacao = ? WHERE id = ?"
+    const q = "UPDATE fluxocaixapessoal SET id = ?, data = ?, descricao = ?, valor = ?, parcela = ?, entrada = ?, quitado = ?, observacao = ? WHERE id = ?"
 
     const values = [
         req.body.id,
         req.body.data,
         req.body.descricao,
+        req.body.valor,
         req.body.parcela,
         req.body.entrada,
         req.body.quitado,
@@ -49,12 +51,12 @@ export const updateDado = (req, res) => {
 
 // Deletar usuario funcionando!
 export const deleteDado = (req, res) => {
-    const q = "DELETE FROM fluxocaixapessoal WHERE `id_usuario` = ?"
+    const q = "DELETE FROM fluxocaixapessoal WHERE `id` = ?"
 
-    pool.query(q, [req.params.id_usuario], (err) => {
+    pool.query(q, [req.params.id], (err) => {
         if(err) return res.json(err)
 
-        return res.status(200).json('Usuário deletado com sucesso!')
+        return res.status(200).json('Dados deletados com sucesso!')
     })
 
 }
